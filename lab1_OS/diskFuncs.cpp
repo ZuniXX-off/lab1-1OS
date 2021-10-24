@@ -4,7 +4,7 @@
 
 
 void ListOfAvailableDisks() {
-	std::cout << "Ñïèñîê äîñòóïíûõ äèñêîâ:" << std::endl;
+	std::cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ð´Ð¸ÑÐºÐ¾Ð²:" << std::endl;
 
 	int temp = GetLogicalDrives();
 	for (int i = 0; i < 26; i++) {
@@ -15,40 +15,40 @@ void ListOfAvailableDisks() {
 std::string GetType(UINT dType) {
 	switch (dType)
 	{
-	case DRIVE_UNKNOWN: return "- UNKNOWN (Íåèçâåñòíûé òèï)";
-	case DRIVE_NO_ROOT_DIR: return "- DRIVE NO ROOT DIR (Íåïðàâèëüíûé ïóòü)";
-	case DRIVE_REMOVABLE: return "- REMOVABLE (Ñú¸ìíûé äèñê)";
-	case DRIVE_FIXED: return "- FIXED (Ôèêñèðîâàííûé äèñê)";
-	case DRIVE_REMOTE: return "- REMOTE (Óäàë¸ííûé äèñê)";
-	case DRIVE_CDROM: return "- CDROM (CD-ROM äèñê)";
-	case DRIVE_RAMDISK: return "- RAMDISK (RAM äèñê)";
+	case DRIVE_UNKNOWN: return "- UNKNOWN (ÐÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ñ‹Ð¹ Ñ‚Ð¸Ð¿)";
+	case DRIVE_NO_ROOT_DIR: return "- DRIVE NO ROOT DIR (ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð¿ÑƒÑ‚ÑŒ)";
+	case DRIVE_REMOVABLE: return "- REMOVABLE (Ð¡ÑŠÑ‘Ð¼Ð½Ñ‹Ð¹ Ð´Ð¸ÑÐº)";
+	case DRIVE_FIXED: return "- FIXED (Ð¤Ð¸ÐºÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð´Ð¸ÑÐº)";
+	case DRIVE_REMOTE: return "- REMOTE (Ð£Ð´Ð°Ð»Ñ‘Ð½Ð½Ñ‹Ð¹ Ð´Ð¸ÑÐº)";
+	case DRIVE_CDROM: return "- CDROM (CD-ROM Ð´Ð¸ÑÐº)";
+	case DRIVE_RAMDISK: return "- RAMDISK (RAM Ð´Ð¸ÑÐº)";
 	}
 }
 
 std::string GetOption(DWORD optionFlag) {
 	switch (optionFlag)
 	{
-	case FILE_CASE_PRESERVED_NAMES: return " - Óêàçàííûé òîì ïîääåðæèâàåò ñîõðàíåííûé ðåãèñòð èìåí ôàéëîâ, êîãäà îí ïîìåùàåò èìÿ íà äèñê";
-	case FILE_CASE_SENSITIVE_SEARCH: return " - Óêàçàííûé òîì ïîääåðæèâàåò èìåíà ôàéëîâ ñ ó÷åòîì ðåãèñòðà";
-	case FILE_DAX_VOLUME: return " - Óêàçàííûé òîì ÿâëÿåòñÿ òîìîì ïðÿìîãî äîñòóïà (DAX)";
-	case FILE_FILE_COMPRESSION: return " - Óêàçàííûé òîì ïîääåðæèâàåò ñæàòèå ôàéëîâ";
-	case FILE_NAMED_STREAMS: return " - Óêàçàííûé òîì ïîääåðæèâàåò èìåíîâàííûå ïîòîêè";
-	case FILE_PERSISTENT_ACLS: return " - Óêàçàííûé òîì ñîõðàíÿåò è ïðèìåíÿåò ñïèñêè óïðàâëåíèÿ äîñòóïîì (ACL)";
-	case FILE_READ_ONLY_VOLUME: return " - Óêàçàííûé òîì äîñòóïåí òîëüêî äëÿ ÷òåíèÿ";
-	case FILE_SEQUENTIAL_WRITE_ONCE: return " - Óêàçàííûé òîì ïîääåðæèâàåò îäíó ïîñëåäîâàòåëüíóþ çàïèñü";
-	case FILE_SUPPORTS_ENCRYPTION: return " - Óêàçàííûé òîì ïîääåðæèâàåò çàøèôðîâàííóþ ôàéëîâóþ ñèñòåìó (EFS)";
-	case FILE_SUPPORTS_EXTENDED_ATTRIBUTES: return " - Óêàçàííûé òîì ïîääåðæèâàåò ðàñøèðåííûå àòðèáóòû";
-	case FILE_SUPPORTS_HARD_LINKS: return " - Óêàçàííûé òîì ïîääåðæèâàåò æåñòêèå ññûëêè";
-	case FILE_SUPPORTS_OBJECT_IDS: return " - Óêàçàííûé òîì ïîääåðæèâàåò èäåíòèôèêàòîðû îáúåêòîâ";
-	case FILE_SUPPORTS_OPEN_BY_FILE_ID: return " - Ôàéëîâàÿ ñèñòåìà ïîääåðæèâàåò îòêðûòèå ïî FileID";
-	case FILE_SUPPORTS_REPARSE_POINTS: return " - Óêàçàííûé òîì ïîääåðæèâàåò òî÷êè ïîâòîðíîãî ðàçáîðà";
-	case FILE_SUPPORTS_SPARSE_FILES: return " - Óêàçàííûé òîì ïîääåðæèâàåò ðàçðåæåííûå ôàéëû";
-	case FILE_SUPPORTS_TRANSACTIONS: return " - Óêàçàííûé òîì ïîääåðæèâàåò òðàíçàêöèè";
-	case FILE_SUPPORTS_USN_JOURNAL: return " - Óêàçàííûé òîì ïîääåðæèâàåò æóðíàëû îáíîâëåíèÿ ïîðÿäêîâûõ íîìåðîâ (USN)";
-	case FILE_UNICODE_ON_DISK: return " - Óêàçàííûé òîì ïîääåðæèâàåò Unicode â èìåíàõ ôàéëîâ ïî ìåðå èõ ïîÿâëåíèÿ íà äèñêå";
-	case FILE_VOLUME_IS_COMPRESSED: return " - Óêàçàííûé òîì ÿâëÿåòñÿ ñæàòûì òîìîì";
-	case FILE_VOLUME_QUOTAS: return " - Óêàçàííûé òîì ïîääåðæèâàåò äèñêîâûå êâîòû";
-	case FILE_SUPPORTS_BLOCK_REFCOUNTING: return " - Óêàçàííûé òîì ïîääåðæèâàåò ñîâìåñòíîå èñïîëüçîâàíèå ëîãè÷åñêèõ êëàñòåðîâ ìåæäó ôàéëàìè íà îäíîì òîìå";
+	case FILE_CASE_PRESERVED_NAMES: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð½Ñ‹Ð¹ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€ Ð¸Ð¼ÐµÐ½ Ñ„Ð°Ð¹Ð»Ð¾Ð², ÐºÐ¾Ð³Ð´Ð° Ð¾Ð½ Ð¿Ð¾Ð¼ÐµÑ‰Ð°ÐµÑ‚ Ð¸Ð¼Ñ Ð½Ð° Ð´Ð¸ÑÐº";
+	case FILE_CASE_SENSITIVE_SEARCH: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¸Ð¼ÐµÐ½Ð° Ñ„Ð°Ð¹Ð»Ð¾Ð² Ñ ÑƒÑ‡ÐµÑ‚Ð¾Ð¼ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°";
+	case FILE_DAX_VOLUME: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ñ‚Ð¾Ð¼Ð¾Ð¼ Ð¿Ñ€ÑÐ¼Ð¾Ð³Ð¾ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° (DAX)";
+	case FILE_FILE_COMPRESSION: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ ÑÐ¶Ð°Ñ‚Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð¾Ð²";
+	case FILE_NAMED_STREAMS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¸";
+	case FILE_PERSISTENT_ACLS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÑ‚ Ð¸ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÐµÑ‚ ÑÐ¿Ð¸ÑÐºÐ¸ ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð¾Ð¼ (ACL)";
+	case FILE_READ_ONLY_VOLUME: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ";
+	case FILE_SEQUENTIAL_WRITE_ONCE: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¾Ð´Ð½Ñƒ Ð¿Ð¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½ÑƒÑŽ Ð·Ð°Ð¿Ð¸ÑÑŒ";
+	case FILE_SUPPORTS_ENCRYPTION: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð·Ð°ÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð½ÑƒÑŽ Ñ„Ð°Ð¹Ð»Ð¾Ð²ÑƒÑŽ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ (EFS)";
+	case FILE_SUPPORTS_EXTENDED_ATTRIBUTES: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ðµ Ð°Ñ‚Ñ€Ð¸Ð±ÑƒÑ‚Ñ‹";
+	case FILE_SUPPORTS_HARD_LINKS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¶ÐµÑÑ‚ÐºÐ¸Ðµ ÑÑÑ‹Ð»ÐºÐ¸";
+	case FILE_SUPPORTS_OBJECT_IDS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ñ‹ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²";
+	case FILE_SUPPORTS_OPEN_BY_FILE_ID: return " - Ð¤Ð°Ð¹Ð»Ð¾Ð²Ð°Ñ ÑÐ¸ÑÑ‚ÐµÐ¼Ð° Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ Ð¿Ð¾ FileID";
+	case FILE_SUPPORTS_REPARSE_POINTS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ð¾Ñ‡ÐºÐ¸ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð±Ð¾Ñ€Ð°";
+	case FILE_SUPPORTS_SPARSE_FILES: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ñ€Ð°Ð·Ñ€ÐµÐ¶ÐµÐ½Ð½Ñ‹Ðµ Ñ„Ð°Ð¹Ð»Ñ‹";
+	case FILE_SUPPORTS_TRANSACTIONS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ñ‚Ñ€Ð°Ð½Ð·Ð°ÐºÑ†Ð¸Ð¸";
+	case FILE_SUPPORTS_USN_JOURNAL: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð¶ÑƒÑ€Ð½Ð°Ð»Ñ‹ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿Ð¾Ñ€ÑÐ´ÐºÐ¾Ð²Ñ‹Ñ… Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð² (USN)";
+	case FILE_UNICODE_ON_DISK: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Unicode Ð² Ð¸Ð¼ÐµÐ½Ð°Ñ… Ñ„Ð°Ð¹Ð»Ð¾Ð² Ð¿Ð¾ Ð¼ÐµÑ€Ðµ Ð¸Ñ… Ð¿Ð¾ÑÐ²Ð»ÐµÐ½Ð¸Ñ Ð½Ð° Ð´Ð¸ÑÐºÐµ";
+	case FILE_VOLUME_IS_COMPRESSED: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ ÑÐ²Ð»ÑÐµÑ‚ÑÑ ÑÐ¶Ð°Ñ‚Ñ‹Ð¼ Ñ‚Ð¾Ð¼Ð¾Ð¼";
+	case FILE_VOLUME_QUOTAS: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ Ð´Ð¸ÑÐºÐ¾Ð²Ñ‹Ðµ ÐºÐ²Ð¾Ñ‚Ñ‹";
+	case FILE_SUPPORTS_BLOCK_REFCOUNTING: return " - Ð£ÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ð¾Ð¼ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð½Ð¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð»Ð¾Ð³Ð¸Ñ‡ÐµÑÐºÐ¸Ñ… ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¾Ð² Ð¼ÐµÐ¶Ð´Ñƒ Ñ„Ð°Ð¹Ð»Ð°Ð¼Ð¸ Ð½Ð° Ð¾Ð´Ð½Ð¾Ð¼ Ñ‚Ð¾Ð¼Ðµ";
 	}
 }
 
@@ -70,7 +70,7 @@ void GetInfoAboutDisk() {
 	DWORD numberOfFreeClusters;
 	DWORD totalNumberOfClusters;
 
-	std::cout << "Ââåäèòå íàçâàíèå äèñêà(ïðèìåð: c:\\) : ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð´Ð¸ÑÐºÐ°(Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\) : ";
 	std::cin.getline(disk_name, MAX_PATH);
 
 	dType = GetDriveType(disk_name);
@@ -79,20 +79,20 @@ void GetInfoAboutDisk() {
 
 	if (!GetVolumeInformation(disk_name, lpVolumeNameBuffer, BUFF, &lpVolumeSerialNumber,
 		&lpMaximumComponentLength, &lpFileSystemFlags, lpFileSystemNameBuffer, BUFF)) {
-		std::cout << "Îøèáêà ïðè îáðàáîòêå çàïðîñà, êîä: " << GetLastError() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐµ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 	}
 	else {
-		std::wcout << "Íàçâàíèå äèñêà: " << lpVolumeNameBuffer << std::endl << "Ñåðèéíûé íîìåð: " << std::hex << lpVolumeSerialNumber
-			<< std::endl << "Ìàêñèìàëüíàÿ äëèíà ôàéëà: " << std::dec << lpMaximumComponentLength << std::endl << "Èìÿ ôàéëîâîé ñèñòåìû: "
-			<< lpFileSystemNameBuffer << std::endl << "Îïöèè ôàéëîâîé ñèñòåìû: " << std::endl;
+		std::wcout << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð´Ð¸ÑÐºÐ°: " << lpVolumeNameBuffer << std::endl << "Ð¡ÐµÑ€Ð¸Ð¹Ð½Ñ‹Ð¹ Ð½Ð¾Ð¼ÐµÑ€: " << std::hex << lpVolumeSerialNumber
+			<< std::endl << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð´Ð»Ð¸Ð½Ð° Ñ„Ð°Ð¹Ð»Ð°: " << std::dec << lpMaximumComponentLength << std::endl << "Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹: "
+			<< lpFileSystemNameBuffer << std::endl << "ÐžÐ¿Ñ†Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð¾Ð²Ð¾Ð¹ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹: " << std::endl;
 		for (int i = 0; i < 21; i++) {
 			if (lpFileSystemFlags & flags[i]) std::cout << GetOption(flags[i]) << std::endl;
 		}
 	}
 
 	if (GetDiskFreeSpace(disk_name, &sectorsPerCluster, &bytesPerSector, &numberOfFreeClusters, &totalNumberOfClusters)) {
-		std::cout << "×èñëî ñåêòîðîâ â êëàñòåðå: " << sectorsPerCluster << std::endl << "×èñëî áàéò â êëàñòåðå: " << bytesPerSector
-			<< std::endl << "×èñëî ñâîáîäíûõ êëàñòåðîâ: " << numberOfFreeClusters << std::endl << "Îáùåå ÷èñëî êëàñòåðîâ: "
+		std::cout << "Ð§Ð¸ÑÐ»Ð¾ ÑÐµÐºÑ‚Ð¾Ñ€Ð¾Ð² Ð² ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ðµ: " << sectorsPerCluster << std::endl << "Ð§Ð¸ÑÐ»Ð¾ Ð±Ð°Ð¹Ñ‚ Ð² ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ðµ: " << bytesPerSector
+			<< std::endl << "Ð§Ð¸ÑÐ»Ð¾ ÑÐ²Ð¾Ð±Ð¾Ð´Ð½Ñ‹Ñ… ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¾Ð²: " << numberOfFreeClusters << std::endl << "ÐžÐ±Ñ‰ÐµÐµ Ñ‡Ð¸ÑÐ»Ð¾ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð¾Ð²: "
 			<< totalNumberOfClusters << std::endl;
 	}
 }

@@ -7,33 +7,33 @@
 void NewCatalog() {
 	TCHAR catalog_name[MAX_PATH];
 
-	std::cout << "Ââåäèòå èìÿ êàòàëîãà (ïðèìåð: c:\\folder): ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð° (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	if (CreateDirectory(catalog_name, nullptr)) {
-		std::cout << "Êàòàëîã ñîçäàí" << std::endl;
+		std::cout << "ÐšÐ°Ñ‚Ð°Ð»Ð¾Ð³ ÑÐ¾Ð·Ð´Ð°Ð½" << std::endl;
 	}
 	else {
-		std::cout << "Îøèáêà ïðè ñîçäàíèè êàòàëîãà" << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð°" << std::endl;
 	}
 }
 
 void DelCatalog() {
 	TCHAR catalog_name[MAX_PATH];
 
-	std::cout << "Ââåäèòå èìÿ êàòàëîãà (ïðèìåð: c:\\folder): ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð° (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	if (RemoveDirectory(catalog_name)) {
-		std::cout << "Êàòàëîã óäàëåí" << std::endl;
+		std::cout << "ÐšÐ°Ñ‚Ð°Ð»Ð¾Ð³ ÑƒÐ´Ð°Ð»ÐµÐ½" << std::endl;
 	}
 	else {
-		std::cout << "Îøèáêà ïðè óäàëåíèè êàòàëîãà" << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ð¸ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð°" << std::endl;
 	}
 }
 
 void PrintCatalogMenu() {
-	std::cout << "1. Ñîçäàòü êàòàëîã" << std::endl << "2. Óäàëèòü êàòàëîã" << std::endl << "0. Íàçàä" << std::endl;
+	std::cout << "1. Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³" << std::endl << "2. Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³" << std::endl << "0. ÐÐ°Ð·Ð°Ð´" << std::endl;
 }
 
 void CatalogMenu() {
@@ -57,7 +57,7 @@ void CatalogMenu() {
 		case '0':
 			break;
 		default:
-			std::cout << "Âûáðàí íåñóùåñòâóþùèé ïóíêò ìåíþ, ïîïðîáóéòå ñíîâà" << std::endl;
+			std::cout << "Ð’Ñ‹Ð±Ñ€Ð°Ð½ Ð½ÐµÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ Ð¿ÑƒÐ½ÐºÑ‚ Ð¼ÐµÐ½ÑŽ, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°" << std::endl;
 			system("pause");
 			break;
 		}

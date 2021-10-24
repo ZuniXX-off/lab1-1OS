@@ -6,15 +6,15 @@
 void NewFile() {
 	TCHAR catalog_name[MAX_PATH];
 
-	std::cout << "Ââåäèòå èìÿ ôàéëà (ïðèìåð: c:\\folder\\text.txt): ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	if (CreateFile(catalog_name, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
 		nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr) != INVALID_HANDLE_VALUE) {
-		std::cout << "Ôàéë ñîçäàí óñïåøíî" << std::endl;
+		std::cout << "Ð¤Ð°Ð¹Ð» ÑÐ¾Ð·Ð´Ð°Ð½ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾" << std::endl;
 	}
 	else {
-		std::cout << "Îøèáêà ïðè ñîçäàíèè ôàéëà, êîä: " << GetLastError() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 	}
 }
 
@@ -22,16 +22,16 @@ void CCopyFile() {
 	TCHAR first_catalog_name[MAX_PATH];
 	TCHAR second_catalog_name[MAX_PATH];
 
-	std::cout << "Ââåäèòå èìÿ ôàéëà - èñòî÷íèêà(ïðèìåð: c:\\folder\\text.txt) : ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° - Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ°(Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder\\text.txt) : ";
 	std::cin.getline(first_catalog_name, MAX_PATH);
-	std::cout << "Ââåäèòå èìÿ ôàéëà-êîïèè: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð°-ÐºÐ¾Ð¿Ð¸Ð¸: ";
 	std::cin.getline(second_catalog_name, MAX_PATH);
 
 	if (CopyFile(first_catalog_name, second_catalog_name, false)) {
-		std::cout << "Ôàéë óñïåøíî ñêîïèðîâàí" << std::endl;
+		std::cout << "Ð¤Ð°Ð¹Ð» ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½" << std::endl;
 	}
 	else {
-		std::cout << "Îøèáêà ïðè êîïèðîâàíèè ôàéëà, êîä: " << GetLastError() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 	}
 }
 
@@ -39,26 +39,26 @@ void CVopyFile() {
 	TCHAR first_catalog_name[MAX_PATH];
 	TCHAR second_catalog_name[MAX_PATH];
 
-	std::cout << "Ââåäèòå èìÿ ôàéëà (ïðèìåð: c:\\folder\\text.txt) : ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder\\text.txt) : ";
 	std::cin.getline(first_catalog_name, MAX_PATH);
-	std::cout << "Ââåäèòå êàòàëîã äëÿ ïåðåìåùåíèÿ: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ: ";
 	std::cin.getline(second_catalog_name, MAX_PATH);
 
 	if (MoveFile(first_catalog_name, second_catalog_name)) {
-		std::cout << "Ôàéë óñïåøíî ïåðåìåùåí" << std::endl;
+		std::cout << "Ð¤Ð°Ð¹Ð» ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½" << std::endl;
 	}
 	else {
-		std::cout << "Îøèáêà ïðè ïåðåìåùåíèè ôàéëà, êîä: " << GetLastError() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 	}
 }
 
 int ChoiceMenu() {
 	char choice;
 	do {
-		std::cout << "Òàêîé ôàéë óæå ñóùåñòâóåò, õîòèòå åãî çàìåíèòü?" << std::endl << "1. Äà" << std::endl << "0. Íåò" << std::endl;
+		std::cout << "Ð¢Ð°ÐºÐ¾Ð¹ Ñ„Ð°Ð¹Ð» ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚, Ñ…Ð¾Ñ‚Ð¸Ñ‚Ðµ ÐµÐ³Ð¾ Ð·Ð°Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ?" << std::endl << "1. Ð”Ð°" << std::endl << "0. ÐÐµÑ‚" << std::endl;
 		choice = _getch();
 		if (choice != '1' && choice != '0') {
-			std::cout << "Âûáðàí íåñóùåñòâóþùèé ïóíêò ìåíþ, ïîïðîáóéòå ñíîâà" << std::endl;
+			std::cout << "Ð’Ñ‹Ð±Ñ€Ð°Ð½ Ð½ÐµÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ Ð¿ÑƒÐ½ÐºÑ‚ Ð¼ÐµÐ½ÑŽ, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°" << std::endl;
 			system("pause");
 		}
 	} while (choice != '1' && choice != '0');
@@ -70,32 +70,32 @@ void CVopyFileEx() {
 	TCHAR second_catalog_name[MAX_PATH];
 	int choice;
 
-	std::cout << "Ââåäèòå èìÿ ôàéëà (ïðèìåð: c:\\folder\\text.txt) : ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: c:\\folder\\text.txt) : ";
 	std::cin.getline(first_catalog_name, MAX_PATH);
-	std::cout << "Ââåäèòå êàòàëîã äëÿ ïåðåìåùåíèÿ: ";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ñ: ";
 	std::cin.getline(second_catalog_name, MAX_PATH);
 
 	if (MoveFileEx(first_catalog_name, second_catalog_name, NULL)) {
-		std::cout << "Ôàéë ïåðåìåùåí óñïåøíî" << std::endl;
+		std::cout << "Ð¤Ð°Ð¹Ð» Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾" << std::endl;
 	}
 	else if (GetLastError() == 183) {
 		if (ChoiceMenu()) {
 			if (MoveFileEx(first_catalog_name, second_catalog_name, MOVEFILE_REPLACE_EXISTING)) {
-				std::cout << "Ôàéë óñïåøíî çàìåíåí" << std::endl;
+				std::cout << "Ð¤Ð°Ð¹Ð» ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð·Ð°Ð¼ÐµÐ½ÐµÐ½" << std::endl;
 			}
 			else {
-				std::cout << "Îøèáêà ïðè çàìåíå ôàéëà, êîä: " << GetLastError() << std::endl;
+				std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð·Ð°Ð¼ÐµÐ½Ðµ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 			}
 		}
 	}
 	else {
-		std::cout << "Îøèáêà ïðè ïåðåìåùåíèè ôàéëà, êîä: " << GetLastError() << std::endl;
+		std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¿ÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð°, ÐºÐ¾Ð´: " << GetLastError() << std::endl;
 	}
 }
 
 void PrintFileMenu() {
-	std::cout << "1. Êîïèðîâàòü ôàéë" << std::endl << "2. Ïåðåìåñòèòü ôàéë" << std::endl << "3. Ïåðåìåñòèòü ôàéë (ñ ïðîâåðêîé)"
-		<< std::endl << "0. Íàçàä" << std::endl;
+	std::cout << "1. ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»" << std::endl << "2. ÐŸÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»" << std::endl << "3. ÐŸÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» (Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¾Ð¹)"
+		<< std::endl << "0. ÐÐ°Ð·Ð°Ð´" << std::endl;
 }
 
 void FileMenu() {
@@ -123,7 +123,7 @@ void FileMenu() {
 		case '0':
 			break;
 		default:
-			std::cout << "Âûáðàí íåñóùåñòâóþùèé ïóíêò ìåíþ, ïîïðîáóéòå ñíîâà" << std::endl;
+			std::cout << "Ð’Ñ‹Ð±Ñ€Ð°Ð½ Ð½ÐµÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¹ Ð¿ÑƒÐ½ÐºÑ‚ Ð¼ÐµÐ½ÑŽ, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°" << std::endl;
 			system("pause");
 			break;
 		}

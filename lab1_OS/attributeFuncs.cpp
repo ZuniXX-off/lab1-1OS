@@ -7,13 +7,13 @@
 std::string GetDescriptionOfAttr(DWORD attr) {
 	switch (attr)
 	{
-	case FILE_ATTRIBUTE_ARCHIVE: return "- архивный";
-	case FILE_ATTRIBUTE_COMPRESSED: return "- сжатый";
-	case FILE_ATTRIBUTE_DIRECTORY: return "- каталог";
-	case FILE_ATTRIBUTE_HIDDEN: return "- скрытый";
-	case FILE_ATTRIBUTE_NORMAL: return "- не имеет атрибутов";
-	case FILE_ATTRIBUTE_READONLY: return "- только для чтения";
-	case FILE_ATTRIBUTE_SYSTEM: return "- системный";
+	case FILE_ATTRIBUTE_ARCHIVE: return "- Р°СЂС…РёРІРЅС‹Р№";
+	case FILE_ATTRIBUTE_COMPRESSED: return "- СЃР¶Р°С‚С‹Р№";
+	case FILE_ATTRIBUTE_DIRECTORY: return "- РєР°С‚Р°Р»РѕРі";
+	case FILE_ATTRIBUTE_HIDDEN: return "- СЃРєСЂС‹С‚С‹Р№";
+	case FILE_ATTRIBUTE_NORMAL: return "- РЅРµ РёРјРµРµС‚ Р°С‚СЂРёР±СѓС‚РѕРІ";
+	case FILE_ATTRIBUTE_READONLY: return "- С‚РѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ";
+	case FILE_ATTRIBUTE_SYSTEM: return "- СЃРёСЃС‚РµРјРЅС‹Р№";
 	}
 }
 
@@ -23,19 +23,19 @@ void GetAttributes() {
 	DWORD attrs[7] = { FILE_ATTRIBUTE_ARCHIVE, FILE_ATTRIBUTE_COMPRESSED, FILE_ATTRIBUTE_DIRECTORY, FILE_ATTRIBUTE_HIDDEN,
 		FILE_ATTRIBUTE_NORMAL, FILE_ATTRIBUTE_READONLY, FILE_ATTRIBUTE_SYSTEM };
 
-	std::cout << "Введите имя файла (пример: c:\\folder\\text.txt): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РїСЂРёРјРµСЂ: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	attr = GetFileAttributes(catalog_name);
 
 	if (attr == -1) {
-		std::cout << "Файл не найден";
+		std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ";
 	} 
 	else if (attr == 0) {
-		std::cout << "Ошибка при получении атрибутов";
+		std::cout << "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё Р°С‚СЂРёР±СѓС‚РѕРІ";
 	}
 	else {
-		std::cout << "Атрибуты файла (" << attr << "):" << std::endl;
+		std::cout << "РђС‚СЂРёР±СѓС‚С‹ С„Р°Р№Р»Р° (" << attr << "):" << std::endl;
 		for (int i = 0; i < 7; i++) {
 			if (attrs[i] & attr) std::cout << GetDescriptionOfAttr(attrs[i]) << std::endl;
 		}
@@ -46,11 +46,11 @@ int ChoiceAttr() {
 	char choice;
 	std::string vars = "12345";
 	do {
-		std::cout << "Изменить атрибут файла на: " << std::endl << "1. Архив" << std::endl << "2. Скрытый" << std::endl << "3. Без атрибутов"
-			<< std::endl << "4. Только для чтения" << std::endl << "5. Системный" << std::endl;
+		std::cout << "РР·РјРµРЅРёС‚СЊ Р°С‚СЂРёР±СѓС‚ С„Р°Р№Р»Р° РЅР°: " << std::endl << "1. РђСЂС…РёРІ" << std::endl << "2. РЎРєСЂС‹С‚С‹Р№" << std::endl << "3. Р‘РµР· Р°С‚СЂРёР±СѓС‚РѕРІ"
+			<< std::endl << "4. РўРѕР»СЊРєРѕ РґР»СЏ С‡С‚РµРЅРёСЏ" << std::endl << "5. РЎРёСЃС‚РµРјРЅС‹Р№" << std::endl;
 		choice = _getch();
 		if (vars.find(choice) == -1) {
-			std::cout << "Выбран несуществующий пункт меню, попробуйте снова" << std::endl;
+			std::cout << "Р’С‹Р±СЂР°РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РїСѓРЅРєС‚ РјРµРЅСЋ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°" << std::endl;
 			system("pause");
 		}
 	} while (vars.find(choice) == -1);
@@ -61,14 +61,14 @@ void SetAttributes() {
 	TCHAR catalog_name[MAX_PATH];
 	DWORD attrs[5] = { FILE_ATTRIBUTE_ARCHIVE, FILE_ATTRIBUTE_HIDDEN, FILE_ATTRIBUTE_NORMAL, FILE_ATTRIBUTE_READONLY, FILE_ATTRIBUTE_SYSTEM };
 
-	std::cout << "Введите имя файла (пример: c:\\folder\\text.txt): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РїСЂРёРјРµСЂ: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	if (SetFileAttributes(catalog_name, attrs[ChoiceAttr()])) {
-		std::cout << "Атрибут был изменен успешно" << std::endl;
+		std::cout << "РђС‚СЂРёР±СѓС‚ Р±С‹Р» РёР·РјРµРЅРµРЅ СѓСЃРїРµС€РЅРѕ" << std::endl;
 	}
 	else {
-		std::cout << "Ошибка при изменении атрибута, код: " << GetLastError() << std::endl;
+		std::cout << "РћС€РёР±РєР° РїСЂРё РёР·РјРµРЅРµРЅРёРё Р°С‚СЂРёР±СѓС‚Р°, РєРѕРґ: " << GetLastError() << std::endl;
 	}
 }
 
@@ -80,31 +80,31 @@ void GetInfoByHandle() {
 	DWORD attrs[7] = { FILE_ATTRIBUTE_ARCHIVE, FILE_ATTRIBUTE_COMPRESSED, FILE_ATTRIBUTE_DIRECTORY, FILE_ATTRIBUTE_HIDDEN,
 		FILE_ATTRIBUTE_NORMAL, FILE_ATTRIBUTE_READONLY, FILE_ATTRIBUTE_SYSTEM };
 
-	std::cout << "Введите имя файла (пример: c:\\folder\\text.txt): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РїСЂРёРјРµСЂ: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	handle_file = CreateFileA(catalog_name, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
 	handle_info = GetFileInformationByHandle(handle_file, &info_file);
 	if (!handle_info) {
-		std::cout << "Произошла ошибка, код: " << GetLastError() << std::endl;
+		std::cout << "РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РєРѕРґ: " << GetLastError() << std::endl;
 	}
 	else {
 		file_attributes = info_file.dwFileAttributes;
 		if (file_attributes == -1) {
-			std::cout << "Файл не найден" << std::endl;
+			std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ" << std::endl;
 		}
 		else if (file_attributes == 0){
-			std::cout << "Произошла ошибка, код: " << GetLastError() << std::endl;
+			std::cout << "РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РєРѕРґ: " << GetLastError() << std::endl;
 		}
 		else {
-			std::cout << "Информация по дескриптору:" << std::endl;
+			std::cout << "РРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РґРµСЃРєСЂРёРїС‚РѕСЂСѓ:" << std::endl;
 			for (int i = 0; i < 7; i++) {
 				if (attrs[i] & file_attributes) std::cout << GetDescriptionOfAttr(attrs[i]) << std::endl;
 			}
-			std::cout << "Уникальный идентификатор связи с файлом: " << ((long long)info_file.nFileIndexHigh << 32) + info_file.nFileIndexLow
-				<< std::endl << "Порядковый номер тома, который содержит файл: " << info_file.dwVolumeSerialNumber << std::endl
-				<< "Размер файла: " << ((long long)info_file.nFileSizeHigh << 32) + info_file.nFileSizeLow << " Байт" << std::endl
-				<< "Число связей с этим файлом: " << info_file.nNumberOfLinks << std::endl;
+			std::cout << "РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРІСЏР·Рё СЃ С„Р°Р№Р»РѕРј: " << ((long long)info_file.nFileIndexHigh << 32) + info_file.nFileIndexLow
+				<< std::endl << "РџРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ С‚РѕРјР°, РєРѕС‚РѕСЂС‹Р№ СЃРѕРґРµСЂР¶РёС‚ С„Р°Р№Р»: " << info_file.dwVolumeSerialNumber << std::endl
+				<< "Р Р°Р·РјРµСЂ С„Р°Р№Р»Р°: " << ((long long)info_file.nFileSizeHigh << 32) + info_file.nFileSizeLow << " Р‘Р°Р№С‚" << std::endl
+				<< "Р§РёСЃР»Рѕ СЃРІСЏР·РµР№ СЃ СЌС‚РёРј С„Р°Р№Р»РѕРј: " << info_file.nNumberOfLinks << std::endl;
 		}
 		
 	}
@@ -117,23 +117,23 @@ void GetTime() {
 	FILETIME time_create, time_last_access, time_last_write;
 	SYSTEMTIME time;
 
-	std::cout << "Введите имя файла (пример: c:\\folder\\text.txt): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РїСЂРёРјРµСЂ: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	file_time = CreateFileA(catalog_name, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL);
 	if (GetFileTime(file_time, &time_create, &time_last_access, &time_last_write)) {
 		FileTimeToSystemTime(&time_create, &time);
-		std::cout << "Дата и время создания файла: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
+		std::cout << "Р”Р°С‚Р° Рё РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ С„Р°Р№Р»Р°: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
 			<< std::setfill('0') << std::setw(2) << time.wHour + 3 << ":" << std::setfill('0') << std::setw(2) << time.wMinute << ":" << std::setfill('0') << std::setw(2) << time.wSecond << std::endl;
 		FileTimeToSystemTime(&time_last_access, &time);
-		std::cout << "Дата и время последнего обращенгия к файлу: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
+		std::cout << "Р”Р°С‚Р° Рё РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РѕР±СЂР°С‰РµРЅРіРёСЏ Рє С„Р°Р№Р»Сѓ: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
 			<< std::setfill('0') << std::setw(2) << time.wHour + 3 << ":" << std::setfill('0') << std::setw(2) << time.wMinute << ":" << std::setfill('0') << std::setw(2) << time.wSecond << std::endl;
 		FileTimeToSystemTime(&time_last_write, &time);
-		std::cout << "Дата и время последнего изменения файла: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
+		std::cout << "Р”Р°С‚Р° Рё РІСЂРµРјСЏ РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ С„Р°Р№Р»Р°: " << std::setfill('0') << std::setw(2) << time.wDay << "." << std::setfill('0') << std::setw(2) << time.wMonth << "." << time.wYear << "  "
 			<< std::setfill('0') << std::setw(2) << time.wHour + 3 << ":" << std::setfill('0') << std::setw(2) << time.wMinute <<  ":" << std::setfill('0') << std::setw(2) << time.wSecond << std::endl;
 	}
 	else {
-		std::cout << "Ошибка при получении информации, код: " << GetLastError() << std::endl;
+		std::cout << "РћС€РёР±РєР° РїСЂРё РїРѕР»СѓС‡РµРЅРёРё РёРЅС„РѕСЂРјР°С†РёРё, РєРѕРґ: " << GetLastError() << std::endl;
 	}
 }
 
@@ -143,23 +143,23 @@ void SetTime() {
 	FILETIME new_file_time;
 	SYSTEMTIME system_time;
 
-	std::cout << "Введите имя файла (пример: c:\\folder\\text.txt): ";
+	std::cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° (РїСЂРёРјРµСЂ: c:\\folder\\text.txt): ";
 	std::cin.getline(catalog_name, MAX_PATH);
 
 	file_time = CreateFileA(catalog_name, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
 	GetSystemTime(&system_time);
 	SystemTimeToFileTime(&system_time, &new_file_time);
 	if (SetFileTime(file_time, &new_file_time, &new_file_time, &new_file_time)) {
-		std::cout << "Время заменено успешно" << std::endl;
+		std::cout << "Р’СЂРµРјСЏ Р·Р°РјРµРЅРµРЅРѕ СѓСЃРїРµС€РЅРѕ" << std::endl;
 	}
 	else {
-		std::cout << "Ошибка при замене данных, код: " << GetLastError() << std::endl;
+		std::cout << "РћС€РёР±РєР° РїСЂРё Р·Р°РјРµРЅРµ РґР°РЅРЅС‹С…, РєРѕРґ: " << GetLastError() << std::endl;
 	}
 }
 
 void PrintAttributeMenu() {
-	std::cout << "1. Получить атрибуты файла" << std::endl << "2. Изменить атрибуты файла" << std::endl << "3. Получить информацию по дескриптору" << std::endl << "4. Получить данные о системном времени файла"
-		<< std::endl << "5. Изменить системное время файла" << std::endl << "0. Назад" << std::endl;
+	std::cout << "1. РџРѕР»СѓС‡РёС‚СЊ Р°С‚СЂРёР±СѓС‚С‹ С„Р°Р№Р»Р°" << std::endl << "2. РР·РјРµРЅРёС‚СЊ Р°С‚СЂРёР±СѓС‚С‹ С„Р°Р№Р»Р°" << std::endl << "3. РџРѕР»СѓС‡РёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕ РґРµСЃРєСЂРёРїС‚РѕСЂСѓ" << std::endl << "4. РџРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ Рѕ СЃРёСЃС‚РµРјРЅРѕРј РІСЂРµРјРµРЅРё С„Р°Р№Р»Р°"
+		<< std::endl << "5. РР·РјРµРЅРёС‚СЊ СЃРёСЃС‚РµРјРЅРѕРµ РІСЂРµРјСЏ С„Р°Р№Р»Р°" << std::endl << "0. РќР°Р·Р°Рґ" << std::endl;
 }
 
 void AttributeMenu() {
@@ -195,7 +195,7 @@ void AttributeMenu() {
 		case '0':
 			break;
 		default:
-			std::cout << "Выбран несуществующий пункт меню, попробуйте снова" << std::endl;
+			std::cout << "Р’С‹Р±СЂР°РЅ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РїСѓРЅРєС‚ РјРµРЅСЋ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°" << std::endl;
 			system("pause");
 			break;
 		}
